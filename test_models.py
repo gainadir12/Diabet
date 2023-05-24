@@ -32,7 +32,7 @@ report_LR = classification_report(y_test, y_pred_LR)
 print(report_LR)
 
 # Сохранение результатов в файл
-with open('result.txt', 'w') as f:
+with open('result_new.txt', 'w') as f:
     f.write(f"RandomForestClassifier Accuracy: {accuracy_RF}\n")
     f.write(f"RandomForestClassifier Classification Report:\n{report_RF}\n\n")
     f.write(f"LogisticRegression Accuracy: {accuracy_LR}\n")
