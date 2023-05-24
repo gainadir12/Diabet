@@ -32,7 +32,7 @@ print("RandomForestClassifier Accuracy:", accuracy_RF)
 # Классификационный отчет для модели случайного леса
 start = time.time()
 y_pred_RF = model_RF.predict(X_test)
-result_RF_time = start - time.time()
+result_RF_time =  time.time() - start
 report_RF = classification_report(y_test, y_pred_RF)
 print(report_RF)
 joblib.dump(model_RF, 'model_RF.joblib')
@@ -48,7 +48,7 @@ print("LogisticRegression Accuracy:", accuracy_LR)
 # Классификационный отчет для модели логистической регрессии
 start = time.time()
 y_pred_LR = model_LR.predict(X_test)
-result_LR_time = start - time.time()
+result_LR_time = time.time() - start 
 report_LR = classification_report(y_test, y_pred_LR)
 print(report_LR)
 joblib.dump(model_LR, 'model_LR.joblib')
