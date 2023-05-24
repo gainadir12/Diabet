@@ -4,6 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 import joblib
+import time
 
 # Загрузка данных
 data = pd.read_csv('diabetes.csv')
@@ -29,7 +30,9 @@ accuracy_RF = model_RF.score(X_test, y_test)
 print("RandomForestClassifier Accuracy:", accuracy_RF)
 
 # Классификационный отчет для модели случайного леса
+start = time.time()
 y_pred_RF = model_RF.predict(X_test)
+result_RF_time = start - time.time()
 report_RF = classification_report(y_test, y_pred_RF)
 print(report_RF)
 joblib.dump(model_RF, 'model_RF.joblib')
@@ -43,7 +46,9 @@ accuracy_LR = model_LR.score(X_test, y_test)
 print("LogisticRegression Accuracy:", accuracy_LR)
 
 # Классификационный отчет для модели логистической регрессии
+start = time.time()
 y_pred_LR = model_LR.predict(X_test)
+result_LR_time = start - time.time()
 report_LR = classification_report(y_test, y_pred_LR)
 print(report_LR)
 joblib.dump(model_LR, 'model_LR.joblib')
@@ -51,6 +56,8 @@ joblib.dump(model_LR, 'model_LR.joblib')
 # Сохранение результатов в файл
 with open('result.txt', 'w') as f:
     f.write(f"RandomForestClassifier Accuracy: {accuracy_RF}\n")
+    f.write(f"RandomForestClassifier Time Speed: {result_RF_time}\n")
     f.write(f"RandomForestClassifier Classification Report:\n{report_RF}\n\n")
     f.write(f"LogisticRegression Accuracy: {accuracy_LR}\n")
+    f.write(f"LogisticRegression Time Speed: {result_LR_time}\n")
     f.write(f"LogisticRegression Classification Report:\n{report_LR}")
