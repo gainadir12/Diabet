@@ -31,15 +31,7 @@ jobs:
       - name: Upgrade pip
         run: pip install --upgrade pip
       - name: Install dependencies
-        run: pip install -r req.txt
+        run: pip install -r reg.txt
       - name: Preprocessing
         run: |
-          python preprocess.py
-      - name: Upload a Build Artifact - 2
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: preprocess_file
-          path: |
-            merged.csv
-            main_data.csv
-            main_data_new.csv
+          python test.py
