@@ -3,7 +3,7 @@ from sklearn.metrics import classification_report
 import joblib
 
 # Загрузка данных
-data = pd.read_csv('diabetes.csv')
+data = pd.read_csv('last_10_rows.csv')
 
 # Разделение данных на обучающий и тестовый наборы
 X_test = data.drop('Outcome', axis=1)
