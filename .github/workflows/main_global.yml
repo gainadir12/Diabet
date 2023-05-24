@@ -1,0 +1,45 @@
+name: Diabet
+
+on:
+  workflow_dispatch:
+
+jobs:
+  download-dataset-processing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.5.2
+      - name: Install Kaggle API
+        run: pip install kaggle
+      - name: Download dataset from Kaggle
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+        run: |
+          kaggle datasets download -d akshaydattatraykhare/diabetes-dataset
+          unzip -o diabetes-dataset.zip
+      - name: Upload CSV files as artifact - 1
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: csv-files
+          path: |
+            *.csv
+      - name: Install Python
+        uses: actions/setup-python@v4.6.0
+        with:
+          python-version: 3.9
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+      - name: Install dependencies
+        run: pip install -r req.txt
+      - name: Preprocessing
+        run: |
+          python preprocess.py
+      - name: Upload a Build Artifact - 2
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: preprocess_file
+          path: |
+            merged.csv
+            main_data.csv
+            main_data_new.csv
