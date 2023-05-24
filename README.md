@@ -28,13 +28,15 @@ ____
 Можно посмотреть на количество диагнозов:
 0    500 (не болеет диабетом)
 1    268 (болеет диабетом)<br>
-![гистограммы интенсивности](./images/count_outcoms.png)
+![гистограмма количества диагнозов](./images/count_outcoms.png)
 
 ____
 ### Component diagram
+
+На рисунке ниже приведен пример диаграммы компонентов, описывающей структуру системы
 
 ![Component diagram](./images/Component_diagram.png)
 
 ### Activity diagram
 
-![Activity diagram](./img/Activity_diagram.png)
+![Activity diagram](./images/Activity_diagram.png)
