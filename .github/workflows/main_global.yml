@@ -62,6 +62,7 @@ jobs:
           name: save_models_info_metrics
           path: |
             result.txt
+            last_10_rows.csv
             model_LR.joblib
             model_RF.joblib
   Test_models:
