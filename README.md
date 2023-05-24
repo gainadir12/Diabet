@@ -26,8 +26,8 @@ ____
 [Обзор датасета](https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset?select=diabetes.csv)
 
 Можно посмотреть на количество диагнозов:
-0    500 (не болеет диабетом)
-1    268 (болеет диабетом)<br>
+0:    500 (не болеет диабетом)
+1:    268 (болеет диабетом)<br>
 ![гистограмма количества диагнозов](./images/count_outcoms.png)
 
 ____
