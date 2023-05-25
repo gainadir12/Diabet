@@ -7,19 +7,19 @@ import joblib
 import time
 
 # Загрузка данных
-data = pd.read_csv('diabetes.csv')
-# берем последние 10 строк из датафрейма
-last_10_rows = data.tail(10)
+data = pd.read_csv('other_rows.csv')
+# # берем последние 10 строк из датафрейма
+# last_10_rows = data.tail(10)
 
-# берем все строки, кроме последних 10
-other_rows = data.head(len(data) - 10)
-# сохраняем данные с последними 10 строками в файл
-last_10_rows.to_csv('last_10_rows.csv', index=False)
+# # берем все строки, кроме последних 10
+# other_rows = data.head(len(data) - 10)
+# # сохраняем данные с последними 10 строками в файл
+# last_10_rows.to_csv('last_10_rows.csv', index=False)
 
-# сохраняем остальные данные в другой файл
-other_rows.to_csv('other_rows.csv', index=False)
+# # сохраняем остальные данные в другой файл
+# other_rows.to_csv('other_rows.csv', index=False)
 # Разделение данных на обучающий и тестовый наборы
-X_train, X_test, y_train, y_test = train_test_split(other_rows.drop('Outcome', axis=1), other_rows['Outcome'], test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(data.drop('Outcome', axis=1), data['Outcome'], test_size=0.2, random_state=42)
 
 # Создание и обучение модели случайного леса
 model_RF = RandomForestClassifier(random_state=42)
