@@ -51,7 +51,7 @@ jobs:
       - name: Download artifact - 1
         uses: actions/download-artifact@v3.0.2
         with:
-          name: csv-files
+          name: preprocess_file
       - name: Install Python
         uses: actions/setup-python@v4.6.0
         with:
@@ -63,7 +63,7 @@ jobs:
       - name: Learn and Save
         run: |
           python learn_model.py
-      - name: Upload a Build Artifact - 2
+      - name: Upload a Build Artifact - 3
         uses: actions/upload-artifact@v3.1.2
         with:
           name: save_models_info_metrics
@@ -81,7 +81,7 @@ jobs:
       - name: Download artifact - 2
         uses: actions/download-artifact@v3.0.2
         with:
-          name: csv-files
+          name: preprocess_file
       - name: Download artifact - 3
         uses: actions/download-artifact@v3.0.2
         with:
