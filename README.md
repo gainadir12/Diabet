@@ -34,7 +34,7 @@ ____
 
 На рисунке ниже приведен пример диаграммы компонентов, описывающей структуру системы
 
-![Component diagram](./images/Component_diagram.png)
+![Component diagram](./images/Component_diagram1.png)
 
 ### Activity diagram
 
