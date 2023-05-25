@@ -4,10 +4,10 @@ import pandas as pd
 # Загрузка данных
 data = pd.read_csv('diabetes.csv')
 # берем последние 10 строк из датафрейма
-last_10_rows = data.tail(10)
+last_10_rows = data.tail(77)
 
 # берем все строки, кроме последних 10
-other_rows = data.head(len(data) - 10)
+other_rows = data.head(len(data) - 77)
 # сохраняем данные с последними 10 строками в файл
 last_10_rows.to_csv('last_10_rows.csv', index=False)
 
